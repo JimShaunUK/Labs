@@ -3,6 +3,18 @@
  
  Create a `Human` class with two properties: `name` of type `String`, and `age` of type `Int`. You'll need to create a memberwise initializer for the class. Initialize two `Human` instances.
  */
+class Human{
+    var name:String
+    var age:Int
+    
+    init(name:String, age:Int){
+        self.name = name
+        self.age = age
+    }
+}
+
+var friend=Human(name:"Jim", age:32)
+var brother=Human(name:"Duncan", age:35)
 
 
 //:  Make the `Human` class adopt the `CustomStringConvertible` protocol. Print both of your previously initialized `Human` objects.
