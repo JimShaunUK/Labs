@@ -11,8 +11,13 @@ struct RunningWorkout {
     var distance: Double
     var time: Double
     var elevation: Double
-    
+    var avgMileTime: Double {
+        distance / time
+    }
 }
+
+var workout = RunningWorkout(distance: 10000, time: 20, elevation: 0)
+print(workout.avgMileTime)
 
 
 /*:
@@ -21,13 +26,23 @@ struct RunningWorkout {
  In the `Steps` struct below, add a `willSet` to the `steps` property that will check if the new value is equal to `goal`, and if it is, prints a congratulatory message. Create an instance of `Steps` where `steps` is 9999 and `goal` is 10000, then call `takeStep()` and see if your message is printed to the console.
  */
 struct Steps {
-    var steps: Int
+    var steps: Int{
+        willSet{
+            print("Hello")
+            self.steps == self.goal ? print("Congratulations!") : print("")
+        }
+    }
     var goal: Int
     
     mutating func takeStep() {
         steps += 1
     }
 }
+
+var current = Steps(steps: 9999, goal:10000)
+current.takeStep()
+current.takeStep()
+
 
 
 /*:

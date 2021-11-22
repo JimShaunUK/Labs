@@ -8,7 +8,15 @@ struct User {
     var userName: String
     var email: String
     var age: Int
+    static var currentUser:user!
 }
+
+
+var me = User(userName: "Jim", email:"jim@mail.com", age: 32)
+User.currentUser = me
+print(User.currentUser)
+
+
 
 
 /*:
